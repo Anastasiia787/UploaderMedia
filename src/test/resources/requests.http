@@ -1,0 +1,31 @@
+POST http://localhost:8080/media
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="image.jpg"
+Content-Type: image/jpeg
+
+< ./media.jpg
+--WebAppBoundary--
+
+###
+
+POST http://localhost:8080/media
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+Content-Type: audio/mpeg
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="music.mp3"
+
+< ./music.mp3
+--WebAppBoundary--
+
+###
+POST http://localhost:8080/posts
+Content-Type: application/json
+
+{
+  "id": 0,
+  "content": "",
+  "media": "c27e04e3-d5ef-4047-8492-8a4a5c74af09"
+}
